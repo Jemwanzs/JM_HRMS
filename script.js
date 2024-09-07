@@ -10,7 +10,7 @@ gapi.auth2.getAuthInstance().signIn().then(() => {
 const CLIENT_ID = '240137685388-589vp1i9to97jvab8tpl5f45h8tmir9n.apps.googleusercontent.com'; // Replace with your actual Client ID
 const API_KEY = 'AIzaSyCG3kzTHUu0athe8QjBNlpDmrTtU15Kt4w'; // Replace with your actual API Key
 const SHEET_ID = '1srXMPdegn0geEframJ6yN9jyJWT5-78SiYAIvj8TvGs'; // Replace with your Google Sheet ID
-const RANGE = 'EmpDB!A:V'; // Adjust the range based on the number of columns in your Google Sheet
+const RANGE = 'EmpDB!A:U'; // Adjust the range based on the number of columns in your Google Sheet
 
 let employeeCount = localStorage.getItem('employeeCount') ? parseInt(localStorage.getItem('employeeCount')) : 1;
 let employees = JSON.parse(localStorage.getItem('employees')) || [];
