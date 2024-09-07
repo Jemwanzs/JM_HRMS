@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Data Entry</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://apis.google.com/js/api.js"></script>
+
+</head>
+
+<body>
+    <div class="container">
+        <h1>Employee Data Entry</h1>
+        <form id="employeeForm">
+            <div class="form-columns">
+                <!-- Column 1: Personal Information -->
+                <div class="column">
+                    <fieldset>
+                        <legend>Personal Information</legend>
+                        <label for="firstName">First Name: <span class="required">*</span></label>
+                        <input type="text" id="firstName" required>
+
+                        <label for="middleName">Middle Name:</label>
+                        <input type="text" id="middleName">
+
+                        <label for="lastName">Last Name: <span class="required">*</span></label>
+                        <input type="text" id="lastName" required>
+
+                        <label for="nationalID">National ID Number: <span class="required">*</span></label>
+                        <input type="number" id="nationalID" required>
+
+                        <label for="mobileNumber">Mobile Number: <span class="required">*</span></label>
+                        <input type="number" id="mobileNumber" required>
+
+                        <label for="privateEmail">Private Email: <span class="required">*</span></label>
+                        <input type="email" id="privateEmail" required>
+
+                        <label for="workEmail">Work Email:</label>
+                        <input type="email" id="workEmail">
+
+                        <label for="dob">Date of Birth: <span class="required">*</span></label>
+                        <input type="date" id="dob" required>
+                    </fieldset>
+                </div>
+
+                <!-- Column 2: Job Information -->
+                <div class="column">
+                    <fieldset>
+                        <legend>Job Information</legend>
+
+                        <!-- Required Fields -->
+                        <label for="jobTitle">Job Title: <span class="required">*</span></label>
+                        <select id="jobTitle" required>
+                            <option value="">Select</option>
+                            <option value="Pharmacist">Pharmacist</option>
+                            <option value="Nurse">Nurse</option>
+                            <option value="Doctor">Doctor</option>
+                            <option value="Nurse Assistant">Nurse Assistant</option>
+                            <option value="Clinical Officer">Clinical Officer</option>
+                            <option value="Nurse|Pharmacist Assistant">Nurse|Pharmacist Assistant</option>
+                            <option value="Pharmacist|Nurse Assistant">Pharmacist|Nurse Assistant</option>
+                            <option value="Lab Technician">Lab Technician</option>
+                            <option value="Finance Manager">Finance Manager</option>
+                            <option value="Sales Manager">Sales Manager</option>
+                            <option value="Cashier">Cashier</option>
+                            <option value="Rider">Rider</option>
+                            <option value="Cleaner">Cleaner</option>
+                            <option value="Store Manager">Store Manager</option>
+                            <!-- Add more options -->
+                        </select>
+
+                        <label for="department">Department: <span class="required">*</span></label>
+                        <select id="department" required>
+                            <option value="">Select</option>
+                            <option value="Clinic">Clinic</option>
+                            <option value="Pharmacy">Pharmacy</option>
+                            <option value="Finance">Finance</option>
+                            <option value="HR">HR</option>
+                            <option value="Lab">Lab</option>
+                            <option value="Operations">Operations</option>
+                            <option value="Logistics">Logistics</option>
+                            <option value="Store">Store</option>
+                            <!-- Add more options -->
+                        </select>
+
+                        <label for="region">Region: <span class="required">*</span></label>
+                        <select id="region" required>
+                            <option value="">Select</option>
+                            <option value="HQ">HQ</option>
+                            <option value="Kitui">Kitui</option>
+                            <option value="Machakos">Machakos</option>
+                            <option value="Mwingi">Mwingi</option>
+                            <option value="Nairobi">Nairobi</option>
+                            <!-- Add more options -->
+                        </select>
+
+                        <label for="salary">Salary (KES): <span class="required">*</span></label>
+                        <input type="number" id="salary" placeholder="Monthly Salary" min="0" required>
+
+                        <label for="employeeType">Employee Type: <span class="required">*</span></label>
+                        <select id="employeeType" required>
+                            <option value="">Select</option>
+                            <option value="Primary Employee">Primary Employee</option>
+                            <option value="Secondary Employee">Secondary Employee</option>
+                            <option value="Consultant">Consultant</option>
+                        </select>
+
+                        <label for="contractStartDate">Contract Start Date: <span class="required">*</span></label>
+                        <input type="date" id="contractStartDate" required>
+
+                        <label for="contractEndDate">Contract End Date: <span class="required">*</span></label>
+                        <input type="date" id="contractEndDate" required>
+
+                        <label for="contractPeriod">Contract Period (days):</label>
+                        <input type="text" id="contractPeriod" readonly>
+                    </fieldset>
+                </div>
+
+                <!-- Column 3: Next of Kin Information -->
+                <div class="column">
+                    <fieldset>
+                        <legend>Next of Kin Information</legend>
+
+                        <!-- Required Field -->
+                        <label for="nextOfKinName">Next of Kin Name: <span class="required">*</span></label>
+                        <input type="text" id="nextOfKinName" required>
+
+                        <label for="nextOfKinMobile">Next of Kin Tel:<span class="required">*</span></label>
+                        <input type="number" id="nextOfKinMobile" required>
+
+                        <label for="nextOfKinEmail">Next of Kin Email:</label>
+                        <input type="email" id="nextOfKinEmail">
+
+                        <label for="nextOfKinLocation">Next of Kin Primary Location:<span
+                                class="required">*</span></label>
+                        <input type="text" id="nextOfKinLocation" required>
+                    </fieldset>
+                </div>
+            </div>
+            <button type="button" id="saveBtn">Save and Continue</button>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
