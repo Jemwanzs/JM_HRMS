@@ -1,12 +1,5 @@
 // script.js
 
-gapi.auth2.getAuthInstance().signIn().then(() => {
-    console.log('User signed in');
-    // Make API call after sign-in
-});
-
-
-
 const CLIENT_ID = '240137685388-589vp1i9to97jvab8tpl5f45h8tmir9n.apps.googleusercontent.com'; // Replace with your actual Client ID
 const API_KEY = 'AIzaSyCG3kzTHUu0athe8QjBNlpDmrTtU15Kt4w'; // Replace with your actual API Key
 const SHEET_ID = '1srXMPdegn0geEframJ6yN9jyJWT5-78SiYAIvj8TvGs'; // Replace with your Google Sheet ID
@@ -39,7 +32,6 @@ function validateForm() {
 }
 
 // Initialize Google API client
-
 function initClient() {
     gapi.load('client:auth2', function () {
         gapi.client.init({
@@ -54,6 +46,7 @@ function initClient() {
             } else {
                 authInstance.signIn().then(() => {
                     console.log('User signed in');
+                    updateSheetOnSignIn();
                 }).catch((error) => {
                     console.error('Sign-in error:', error);
                 });
@@ -64,9 +57,30 @@ function initClient() {
     });
 }
 
+// Update Google Sheets after sign-in
+function updateSheetOnSignIn() {
+    gapi.client.sheets.spreadsheets.values.append({
+        spreadsheetId: SHEET_ID,
+        range: RANGE,
+        valueInputOption: 'RAW',
+        insertDataOption: 'INSERT_ROWS',
+        resource: {
+            values: employees.map(employee => [
+                employee.regNo, employee.firstName, employee.middleName, employee.lastName, employee.nationalID,
+                employee.mobileNumber, employee.privateEmail, employee.workEmail, employee.dob, employee.jobTitle,
+                employee.department, employee.region, employee.salary, employee.employeeType, employee.contractStartDate,
+                employee.contractEndDate, employee.contractPeriod, employee.nextOfKinName, employee.nextOfKinMobile,
+                employee.nextOfKinEmail, employee.nextOfKinLocation
+            ])
+        }
+    }).then((response) => {
+        console.log('Data saved to Google Sheets:', response);
+    }).catch((error) => {
+        console.error('Error saving data to Google Sheets:', error);
+    });
+}
 
-
-// Function to update the Google Sheet
+// Function to update the Google Sheet with a single employee
 function updateSheet(employee) {
     const values = [
         [employee.regNo, employee.firstName, employee.middleName, employee.lastName, employee.nationalID,
