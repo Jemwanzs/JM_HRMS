@@ -40,7 +40,11 @@ function initClient() {
             discoveryDocs: ['https://sheets.googleapis.com/$discovery/rest?version=v4'],
             scope: 'https://www.googleapis.com/auth/spreadsheets'
         }).then(function () {
-            gapi.auth2.getAuthInstance().signIn();
+            gapi.auth2.getAuthInstance().signIn().then(() => {
+                console.log('User signed in');
+            });
+        }).catch((error) => {
+            console.error('Error initializing Google API client:', error);
         });
     });
 }
