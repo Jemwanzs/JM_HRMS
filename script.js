@@ -1,5 +1,12 @@
 // script.js
 
+gapi.auth2.getAuthInstance().signIn().then(() => {
+    console.log('User signed in');
+    // Make API call after sign-in
+});
+
+
+
 const CLIENT_ID = '240137685388-589vp1i9to97jvab8tpl5f45h8tmir9n.apps.googleusercontent.com'; // Replace with your actual Client ID
 const API_KEY = 'AIzaSyCG3kzTHUu0athe8QjBNlpDmrTtU15Kt4w'; // Replace with your actual API Key
 const SHEET_ID = '1srXMPdegn0geEframJ6yN9jyJWT5-78SiYAIvj8TvGs'; // Replace with your Google Sheet ID
@@ -32,6 +39,7 @@ function validateForm() {
 }
 
 // Initialize Google API client
+
 function initClient() {
     gapi.load('client:auth2', function () {
         gapi.client.init({
@@ -40,14 +48,23 @@ function initClient() {
             discoveryDocs: ['https://sheets.googleapis.com/$discovery/rest?version=v4'],
             scope: 'https://www.googleapis.com/auth/spreadsheets'
         }).then(function () {
-            gapi.auth2.getAuthInstance().signIn().then(() => {
-                console.log('User signed in');
-            });
+            const authInstance = gapi.auth2.getAuthInstance();
+            if (authInstance.isSignedIn.get()) {
+                console.log('User is already signed in');
+            } else {
+                authInstance.signIn().then(() => {
+                    console.log('User signed in');
+                }).catch((error) => {
+                    console.error('Sign-in error:', error);
+                });
+            }
         }).catch((error) => {
             console.error('Error initializing Google API client:', error);
         });
     });
 }
+
+
 
 // Function to update the Google Sheet
 function updateSheet(employee) {
