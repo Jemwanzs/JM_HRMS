@@ -1,0 +1,147 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    padding-top: 70px;
+    background-color: #f5dede;
+}
+
+/* Container Styling */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #2c1c1c;
+    padding: 20px;
+}
+
+/* Heading Styling */
+h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+/* Navigation Button Styling */
+.nav-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.nav-button {
+    display: inline-block;
+    padding: 15px 25px;
+    font-size: 1.2em;
+    text-decoration: none;
+    color: #fff;
+    background-color: gray;
+    /* Green background */
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.nav-button:hover {
+    background-color: orange;
+    /* Darker green */
+    transform: scale(1.05);
+}
+
+.navbar {
+    position: fixed;
+    width: 100%;
+    display: flex;
+    top: 0;
+    align-items: center;
+    padding: 20px;
+    background-color: #f5deb3;
+    z-index: 1000;
+    /* Ensure it appears above other elements */
+    box-shadow: 0px 4px 2px -2px gray;
+    /* Optional: adds a subtle shadow */
+}
+
+
+nav {
+    flex: 1;
+    text-align: right;
+}
+
+nav ul {
+    display: inline-block;
+    list-style: none;
+}
+
+nav ul li {
+    display: inline-block;
+    margin-right: 15px;
+}
+
+nav ul li a {
+    display: inline-block;
+    margin-right: 15px;
+    transition: color 0s ease;
+}
+
+.navbar nav ul li a:hover {
+    color: #f0f0f0;
+    /* Color when hovering over a link */
+    background-color: #555;
+    /* Background color when hovering */
+    border-radius: 5px;
+    /* Optional: add rounded corners */
+}
+
+
+.analytics {
+    text-align: center;
+}
+
+.card-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 10px;
+    width: 250px;
+    padding: 20px;
+    text-align: center;
+}
+
+.card-icon {
+    margin-bottom: 15px;
+}
+
+.card-icon svg {
+    display: block;
+    margin: 0 auto;
+}
+
+.card-info h2 {
+    font-size: 1.5em;
+    margin: 10px 0;
+}
+
+.card-info p {
+    font-size: 1.2em;
+    color: #333;
+}
+
+.charts {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.charts canvas {
+    width: 100% !important;
+    max-width: 600px;
+    height: 300px;
+    margin: 0 auto;
+}

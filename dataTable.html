@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Data Table</title>
+    <link rel="stylesheet" href="dataTable.css">
+    <link rel="icon" href="images/favicon.png" type="image/png"><!----fav-icon for the browser---->
+</head>
+
+<body>
+    <div class="container">
+
+        <a href="home.html" class="nav-button">Back</a>
+
+        <h1>Employee Data Table</h1>
+        <input type="text" id="searchBar" placeholder="Search by First Name">
+
+        <!-- Tabs -->
+        <div class="tab">
+            <button class="tablinks" onclick="openTab(event, 'Active')">Active Employees</button>
+            <button class="tablinks" onclick="openTab(event, 'Inactive')">Inactive Employees</button>
+        </div>
+
+        <!-- Tab content -->
+        <div id="Active" class="tabcontent">
+            <table id="activeEmployeeTable">
+                <thead>
+                    <tr>
+                        <th>Employee Number</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Job Title</th>
+                        <th>Department</th>
+                        <th>Salary (KES)</th>
+                        <th>Contract Start Date</th>
+                        <th>Contract End Date</th>
+                        <th>Next of Kin Name</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+
+        <div id="Inactive" class="tabcontent">
+            <table id="inactiveEmployeeTable">
+                <thead>
+                    <tr>
+                        <th>Employee Number</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Job Title</th>
+                        <th>Department</th>
+                        <th>Salary (KES)</th>
+                        <th>Contract Start Date</th>
+                        <th>Contract End Date</th>
+                        <th>Next of Kin Name</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+
+        <button id="resetDataBtn">Delete All</button>
+
+    </div>
+
+    <!-- Termination Modal -->
+    <div id="terminationModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Employee Termination Details</h2>
+            <form id="terminationForm">
+                <label for="terminationDate">Date:</label>
+                <input type="date" id="terminationDate" required><br>
+
+                <label for="terminationReasons">Reason(s):</label>
+                <textarea id="terminationReasons" rows="4" cols="50" placeholder="Enter reason(s) here..."
+                    required></textarea><br>
+
+                <label for="noticePeriod">Notice Period (days):</label>
+                <input type="number" id="noticePeriod" min="0" required><br>
+
+                <label for="terminalDues">Terminal Dues Amount (KES):</label>
+                <input type="number" id="terminalDues" min="0" required><br>
+
+                <button type="button" id="confirmDelete">Confirm Termination</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="dataTable.js"></script>
+    <script>
+        // Function to handle tab switching
+        function openTab(evt, tabName) {
+            let i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+
+        // Show the default tab
+        document.addEventListener("DOMContentLoaded", function () {
+            document.querySelector(".tablinks").click(); // Show the first tab by default
+        });
+    </script>
+</body>
+
+</html>

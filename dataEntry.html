@@ -5,13 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Employee Data Entry</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="dataEntry.css">
     <script src="https://apis.google.com/js/api.js"></script>
-
+    <link rel="icon" href="images/favicon.png" type="image/png"><!----fav-icon for the browser---->
 </head>
 
 <body>
     <div class="container">
+
+        <a href="home.html" class="nav-button">Back</a>
+
         <h1>Employee Data Entry</h1>
         <form id="employeeForm">
             <div class="form-columns">
@@ -49,8 +52,6 @@
                 <div class="column">
                     <fieldset>
                         <legend>Job Information</legend>
-
-                        <!-- Required Fields -->
                         <label for="jobTitle">Job Title: <span class="required">*</span></label>
                         <select id="jobTitle" required>
                             <option value="">Select</option>
@@ -110,8 +111,8 @@
                         <label for="contractStartDate">Contract Start Date: <span class="required">*</span></label>
                         <input type="date" id="contractStartDate" required>
 
-                        <label for="contractEndDate">Contract End Date: <span class="required">*</span></label>
-                        <input type="date" id="contractEndDate" required>
+                        <label for="contractEndDate">Contract End Date:</label>
+                        <input type="date" id="contractEndDate">
 
                         <label for="contractPeriod">Contract Period (days):</label>
                         <input type="text" id="contractPeriod" readonly>
@@ -124,26 +125,26 @@
                         <legend>Next of Kin Information</legend>
 
                         <!-- Required Field -->
-                        <label for="nextOfKinName">Next of Kin Name: <span class="required">*</span></label>
-                        <input type="text" id="nextOfKinName" required>
+                        <label for="nextOfKinName">Next of Kin Name:</label>
+                        <input type="text" id="nextOfKinName">
 
-                        <label for="nextOfKinMobile">Next of Kin Tel:<span class="required">*</span></label>
-                        <input type="number" id="nextOfKinMobile" required>
+                        <label for="nextOfKinMobile">Next of Kin Tel:</label>
+                        <input type="number" id="nextOfKinMobile">
 
                         <label for="nextOfKinEmail">Next of Kin Email:</label>
                         <input type="email" id="nextOfKinEmail">
 
-                        <label for="nextOfKinLocation">Next of Kin Primary Location:<span
-                                class="required">*</span></label>
-                        <input type="text" id="nextOfKinLocation" required>
+                        <label for="nextOfKinLocation">Next of Kin Primary Location:</label>
+                        <input type="text" id="nextOfKinLocation">
                     </fieldset>
                 </div>
             </div>
             <button type="button" id="saveBtn">Save and Continue</button>
+            <button type="button" id="toDataTableBtn">View Active Employees</button>
         </form>
     </div>
 
-    <script src="script.js"></script>
+    <script src="dataEntry.js"></script>
 </body>
 
 </html>

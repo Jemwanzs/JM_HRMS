@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple HRMIS</title>
+    <link rel="stylesheet" href="home.css">
+    <script src="https://apis.google.com/js/api.js"></script>
+    <link rel="icon" href="images/favicon.png" type="image/png"><!----fav-icon for the browser---->
+</head>
+
+<body>
+    <div class="header">
+        <div class="navbar">
+            <div class="logo">
+                <a href="home.html"><img src="images/logo.png" width="150px"></a>
+            </div>
+            <nav>
+                <ul id="menuItems">
+                    <!--add clickable menu using tag <a></a> to link pages-->
+                    <li><a href="dataEntry.html" class="nav-button">New Employee</a></li>
+                    <li><a href="dataTable.html" class="nav-button">Manage Employees</a></li>
+                    <li><a href="payroll.html" class="nav-button">Payroll</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <div class="container">
+        <div class="analytics">
+            <h1>Analytics Dashboard</h1>
+            <div class="card-container">
+                <div class="card">
+                    <div class="card-icon">
+                        <!-- Icon for Total Employees -->
+                        <svg width="50" height="50" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="25" cy="25" r="20" stroke="black" stroke-width="2" fill="#4CAF50" />
+                            <text x="50%" y="50%" text-anchor="middle" stroke="#51c5cf" stroke-width="1px" dy=".3em"
+                                fill="#fff">E</text>
+                        </svg>
+                    </div>
+                    <div class="card-info">
+                        <h2>Total Employees</h2>
+                        <p>10</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-icon">
+                        <!-- Icon for Payroll Expenses -->
+                        <svg width="50" height="50" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="40" height="40" fill="#FFC107" />
+                            <text x="50%" y="50%" text-anchor="middle" stroke="#51c5cf" stroke-width="1px" dy=".3em"
+                                fill="#fff">P</text>
+                        </svg>
+                    </div>
+                    <div class="card-info">
+                        <h2>Gross Payroll</h2>
+                        <p>Kes 500,000</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-icon">
+                        <!-- Icon for Payroll Expenses -->
+                        <svg width="50" height="50" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="40" height="40" fill="#FFC107" />
+                            <text x="50%" y="50%" text-anchor="middle" stroke="#51c5cf" stroke-width="1px" dy=".3em"
+                                fill="#fff">P</text>
+                        </svg>
+                    </div>
+                    <div class="card-info">
+                        <h2>Deductions</h2>
+                        <p>Kes 100,000</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-icon">
+                        <!-- Icon for Payroll Expenses -->
+                        <svg width="50" height="50" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="40" height="40" fill="#FFC107" />
+                            <text x="50%" y="50%" text-anchor="middle" stroke="#51c5cf" stroke-width="1px" dy=".3em"
+                                fill="#fff">P</text>
+                        </svg>
+                    </div>
+                    <div class="card-info">
+                        <h2>Net Payroll</h2>
+                        <p>Kes 400,000</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-icon">
+                        <!-- Icon for Payroll Expenses -->
+                        <svg width="50" height="50" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="40" height="40" fill="#FFC107" />
+                            <text x="50%" y="50%" text-anchor="middle" stroke="#51c5cf" stroke-width="1px" dy=".3em"
+                                fill="#fff">P</text>
+                        </svg>
+                    </div>
+                    <div class="card-info">
+                        <h2>PAYE</h2>
+                        <p>Kes 50,000</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-icon">
+                        <!-- Icon for Payroll Expenses -->
+                        <svg width="50" height="50" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="40" height="40" fill="#FFC107" />
+                            <text x="50%" y="50%" text-anchor="middle" stroke="#51c5cf" stroke-width="1px" dy=".3em"
+                                fill="#fff">P</text>
+                        </svg>
+                    </div>
+                    <div class="card-info">
+                        <h2>NHIF</h2>
+                        <p>Kes 20,000</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-icon">
+                        <!-- Icon for Payroll Expenses -->
+                        <svg width="50" height="50" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="40" height="40" fill="#FFC107" />
+                            <text x="50%" y="50%" text-anchor="middle" stroke="#51c5cf" stroke-width="1px" dy=".3em"
+                                fill="#fff">P</text>
+                        </svg>
+                    </div>
+                    <div class="card-info">
+                        <h2>NSSF</h2>
+                        <p>Kes 25,000</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-icon">
+                        <!-- Icon for Payroll Expenses -->
+                        <svg width="50" height="50" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="40" height="40" fill="#FFC107" />
+                            <text x="50%" y="50%" text-anchor="middle" stroke="#51c5cf" stroke-width="1px" dy=".3em"
+                                fill="#fff">P</text>
+                        </svg>
+                    </div>
+                    <div class="card-info">
+                        <h2>AHL</h2>
+                        <p>Kes 5,000</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-icon">
+                        <!-- Icon for Average Salary -->
+                        <svg width="50" height="50" xmlns="http://www.w3.org/2000/svg">
+                            <ellipse cx="25" cy="25" rx="20" ry="10" fill="#2196F3" />
+                            <text x="50%" y="50%" text-anchor="middle" stroke="#51c5cf" stroke-width="1px" dy=".3em"
+                                fill="#fff">S</text>
+                        </svg>
+                    </div>
+                    <div class="card-info">
+                        <h2>Average Salary</h2>
+                        <p>Kes 50,000</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="home.js"></script>
+</body>
+
+</html>
