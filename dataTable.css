@@ -26,11 +26,8 @@ body {
     padding: 20px;
     background-color: #f5deb3;
     z-index: 1000;
-    /* Ensure it appears above other elements */
     box-shadow: 0px 4px 2px -2px gray;
-    /* Optional: adds a subtle shadow */
 }
-
 
 nav {
     flex: 1;
@@ -55,14 +52,9 @@ nav ul li a {
 
 .navbar nav ul li a:hover {
     color: #f0f0f0;
-    /* Color when hovering over a link */
     background-color: orange;
-    /* Background color when hovering */
     border-radius: 5px;
-    /* Optional: add rounded corners */
 }
-
-
 
 /* Tabs styles */
 .tab {
@@ -80,7 +72,6 @@ nav ul li a {
     padding: 14px 20px;
     transition: 0.3s;
     flex: 1;
-    /* Make buttons flexible */
     text-align: center;
 }
 
@@ -103,7 +94,6 @@ nav ul li a {
 .tabcontent {
     display: none;
     width: 100%;
-    /* Full width of the container */
     padding: 20px;
     border: 1px solid #ddd;
     border-top: none;
@@ -122,27 +112,13 @@ td {
     padding: 8px;
     text-align: left;
     word-wrap: break-word;
-    /* Handle long words */
 }
 
 th {
     background-color: #f2f2f2;
 }
 
-label {
-    display: block;
-    margin: 10px 0 5px;
-}
-
-input,
-select {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
+/* Button styling */
 button {
     width: 200px;
     padding: 10px;
@@ -177,9 +153,7 @@ button:hover {
     padding: 20px;
     border: 1px solid #888;
     width: 90%;
-    /* Responsive width for modal */
     max-width: 600px;
-    /* Maximum width for modal */
 }
 
 .close {
@@ -196,6 +170,29 @@ button:hover {
     cursor: pointer;
 }
 
+/* Navigation Button Styling */
+.nav-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.nav-button {
+    display: inline-block;
+    padding: 15px 25px;
+    font-size: 1.2em;
+    text-decoration: none;
+    color: #fff;
+    background-color: gray;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.nav-button:hover {
+    background-color: orange;
+    transform: scale(1.05);
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .tab button {
@@ -204,12 +201,29 @@ button:hover {
 
     .modal-content {
         width: 95%;
-        /* Wider width on smaller screens */
     }
 
     table {
         font-size: 14px;
-        /* Smaller font size for tables on small screens */
+    }
+
+    .navbar {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .navbar nav ul {
+        display: flex;
+        flex-direction: column;
+        padding: 10px 0;
+    }
+
+    #searchBar {
+        width: 80%;
+    }
+
+    h1 {
+        margin-top: 75px;
     }
 }
 
@@ -221,53 +235,53 @@ button:hover {
 
     .modal-content {
         width: 100%;
-        /* Full width on very small screens */
     }
 
     table {
         font-size: 12px;
-        /* Smaller font size for very small screens */
     }
-}
 
-#backBtn {
-    margin-bottom: 25px;
-}
+    th,
+    td {
+        font-size: 10px;
+        padding: 5px;
+    }
 
-.terminate-btn {
-    background-color: red;
-    color: white;
-    padding: 5px 10px;
-}
+    .navbar {
+        flex-direction: column;
+        text-align: center;
+    }
 
-.activate-btn {
-    background-color: green;
-    color: white;
-    padding: 5px 10px;
-}
+    .tab {
+        flex-direction: column;
+    }
 
-#searchBar {
-    width: 400px;
-}
+    #searchBar {
+        width: 100%;
+    }
 
-.nav-button {
-    display: inline-block;
-    padding: 15px 25px;
-    font-size: 1.2em;
-    text-decoration: none;
-    color: #fff;
-    background-color: gray;
-    /* Green background */
-    border-radius: 5px;
-    transition: background-color 0.3s, transform 0.3s;
-}
+    button {
+        width: 100%;
+        margin-bottom: 10px;
+    }
 
-.nav-button:hover {
-    background-color: orange;
-    /* Darker green */
-    transform: scale(1.05);
-}
+    /* Stack the header elements vertically */
+    .logo {
+        text-align: center;
+    }
 
-h1 {
-    color: gray;
+    .nav ul {
+        text-align: center;
+        padding: 0;
+    }
+
+    .nav ul li {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    /* Adjust padding for smaller screens */
+    .container {
+        padding: 10px;
+    }
 }

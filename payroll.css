@@ -17,12 +17,7 @@ body {
     padding: 20px;
 }
 
-/* Heading Styling */
-h1 {
-    font-size: 2em;
-    margin-bottom: 20px;
-}
-
+/* Navbar Styling */
 .navbar {
     position: fixed;
     width: 100%;
@@ -37,6 +32,11 @@ h1 {
     /* Optional: adds a subtle shadow */
 }
 
+h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: gray;
+}
 
 nav {
     flex: 1;
@@ -56,7 +56,10 @@ nav ul li {
 nav ul li a {
     display: inline-block;
     margin-right: 15px;
-    transition: color 0s ease;
+    padding: 8px;
+    color: black;
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 .navbar nav ul li a:hover {
@@ -68,50 +71,96 @@ nav ul li a {
     /* Optional: add rounded corners */
 }
 
-/* Tabs styles */
-.tab {
+/* Navigation Button Styling */
+.nav-buttons {
     display: flex;
-    width: 100%;
-    background-color: #292626;
-    border-radius: 5px;
+    flex-direction: column;
+    gap: 15px;
 }
 
-.tab button {
-    background-color: inherit;
+.nav-button {
+    padding: 15px 25px;
+    font-size: 1.2em;
+    text-decoration: none;
+    color: #fff;
+    background-color: gray;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.nav-button:hover {
+    background-color: orange;
+    transform: scale(1.05);
+}
+
+/* Responsive Navbar for Smaller Screens */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+}
+
+/* Form Styles */
+.company-name,
+.payroll-period {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.company-name label,
+.payroll-period label {
+    margin-right: 10px;
+}
+
+.company-name input,
+.payroll-period input {
+    padding: 8px;
+    font-size: 1em;
+    width: 100%;
+    max-width: 300px;
+}
+
+/* Responsive Input Fields */
+@media (max-width: 768px) {
+
+    .company-name input,
+    .payroll-period input {
+        max-width: 100%;
+    }
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+button {
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
     border: none;
-    outline: none;
+    border-radius: 5px;
     cursor: pointer;
-    padding: 14px 20px;
-    transition: 0.3s;
-    flex: 1;
+    width: 200px;
     text-align: center;
 }
 
-.tab button:hover {
-    background-color: orange;
+button:hover {
+    background-color: rgb(250, 180, 51);
 }
 
-#resetDataBtn {
-    background-color: red;
-}
-
-#resetDataBtn:hover {
-    background-color: orange;
-}
-
-.tab button.active {
-    background-color: orange;
-}
-
-.tabcontent {
-    display: none;
-    width: 100%;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-top: none;
-}
-
-/* Table styles */
+/* Payroll Table Styling */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -130,160 +179,90 @@ th {
     background-color: #f2f2f2;
 }
 
-label {
-    display: block;
-    margin: 10px 0 5px;
-}
-
-input,
-select {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-button {
-    width: 200px;
-    padding: 10px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: rgb(250, 180, 51);
-}
-
-/* Modal styles */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.4);
-    padding-top: 60px;
-}
-
-.modal-content {
-    background-color: #fefefe;
-    margin: 5% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 90%;
-    max-width: 600px;
-}
-
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-/* Responsive Design */
+/* Responsive Table Adjustments */
 @media (max-width: 768px) {
-    .tab button {
-        padding: 12px 16px;
+    table {
+        font-size: 14px;
+    }
+
+    th,
+    td {
+        padding: 6px;
+    }
+
+    .container h1 {
+        margin-top: 125px;
     }
 
     .modal-content {
         width: 95%;
     }
-
-    table {
-        font-size: 14px;
-    }
 }
 
 @media (max-width: 480px) {
-    .tab button {
-        padding: 10px 12px;
-        font-size: 14px;
-    }
-
-    .modal-content {
-        width: 100%;
-    }
-
     table {
         font-size: 12px;
+        /* Adjust font size for small screens */
     }
-}
 
-#backBtn {
-    margin-bottom: 25px;
-}
+    th,
+    td {
+        padding: 5px;
+        /* Reduce padding for smaller screens */
+    }
 
-.terminate-btn {
-    background-color: red;
-    color: white;
-    padding: 5px 10px;
-}
-
-.activate-btn {
-    background-color: green;
-    color: white;
-    padding: 5px 10px;
-}
-
-#searchBar {
-    width: 400px;
-}
-
-.nav-button {
-    display: inline-block;
-    padding: 15px 25px;
-    font-size: 1.2em;
-    text-decoration: none;
-    color: #fff;
-    background-color: gray;
-    border-radius: 5px;
-    transition: background-color 0.3s, transform 0.3s;
-}
-
-.nav-button:hover {
-    background-color: orange;
-    transform: scale(1.05);
-}
-
-h1 {
-    color: gray;
-}
-
-.row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    align-items: center;
-    gap: 20px;
-}
-
-/* print.css */
-@media print {
-
-    .header,
-    .navbar {
+    /* Hide table headers */
+    table thead {
         display: none;
     }
 
-    .container {
-        margin: 0;
-        padding: 0;
+    /* Make table rows block-level elements */
+    table tr {
+        display: block;
+        margin-bottom: 15px;
+        /* Space between rows */
+    }
+
+    /* Style for table cells */
+    table td {
+        display: block;
+        text-align: right;
+        position: relative;
+        padding-left: 50%;
+        padding-bottom: 10px;
+        /* Space at bottom of cells */
+    }
+
+    /* Add labels for table cells */
+    table td::before {
+        content: attr(data-label);
+        /* Use the data-label attribute for cell labels */
+        position: absolute;
+        left: 0;
+        width: 50%;
+        padding-left: 10px;
+        font-weight: bold;
+        text-align: left;
+        white-space: nowrap;
+        /* Prevent text from wrapping */
+    }
+}
+
+/* Modal Styles */
+.modal-content {
+    max-width: 90%;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+}
+
+/* Print Styles */
+@media print {
+
+    .header,
+    .navbar,
+    .row button {
+        display: none;
     }
 
     table {
@@ -293,48 +272,7 @@ h1 {
 
     th,
     td {
-        border: 1px solid #000;
+        border: 1px solid black;
         padding: 8px;
-        text-align: left;
     }
-
-    h1,
-    p {
-        display: none;
-    }
-
-    /* Hide the print button during printing */
-    .row button {
-        display: none;
-    }
-}
-
-
-.company-name {
-    display: flex;
-    align-items: center;
-}
-
-.company-name label {
-    margin-right: 10px;
-}
-
-.company-name input {
-    padding: 5px;
-    font-size: 16px;
-    width: 200px;
-}
-
-.payroll-period {
-    display: flex;
-    align-items: center;
-}
-
-.payroll-period label {
-    margin-right: 10px;
-}
-
-.payroll-period input {
-    padding: 5px;
-    font-size: 16px;
 }

@@ -10,12 +10,25 @@ body {
     background-color: #f5dede;
 }
 
-/* Container Styling */
 .container {
     max-width: 1200px;
     margin: 0 auto;
     background-color: #2c1c1c;
     padding: 20px;
+}
+
+.navbar {
+    position: fixed;
+    width: 100%;
+    display: flex;
+    top: 0;
+    align-items: center;
+    padding: 20px;
+    background-color: #f5deb3;
+    z-index: 1000;
+    /* Ensure it appears above other elements */
+    box-shadow: 0px 4px 2px -2px gray;
+    /* Optional: adds a subtle shadow */
 }
 
 /* Heading Styling */
@@ -38,31 +51,19 @@ h1 {
     text-decoration: none;
     color: #fff;
     background-color: gray;
-    /* Green background */
     border-radius: 5px;
     transition: background-color 0.3s, transform 0.3s;
 }
 
 .nav-button:hover {
     background-color: orange;
-    /* Darker green */
     transform: scale(1.05);
 }
 
-.navbar {
-    position: fixed;
-    width: 100%;
-    display: flex;
-    top: 0;
-    align-items: center;
-    padding: 20px;
-    background-color: #f5deb3;
-    z-index: 1000;
-    /* Ensure it appears above other elements */
-    box-shadow: 0px 4px 2px -2px gray;
-    /* Optional: adds a subtle shadow */
+.logo img {
+    width: 100px;
+    /* Adjust logo size for smaller screens */
 }
-
 
 nav {
     flex: 1;
@@ -87,13 +88,9 @@ nav ul li a {
 
 .navbar nav ul li a:hover {
     color: #f0f0f0;
-    /* Color when hovering over a link */
     background-color: orange;
-    /* Background color when hovering */
     border-radius: 5px;
-    /* Optional: add rounded corners */
 }
-
 
 .analytics {
     text-align: center;
@@ -149,4 +146,78 @@ nav ul li a {
     max-width: 600px;
     height: 300px;
     margin: 0 auto;
+}
+
+/* Responsive Design for smaller screens */
+@media screen and (max-width: 768px) {
+
+    /* Adjust navbar */
+    .navbar {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav ul {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px;
+    }
+
+    nav ul li {
+        margin: 5px 0;
+    }
+
+    /* Adjust card container */
+    .card-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card {
+        width: 100%;
+        max-width: 400px;
+    }
+
+    /* Reduce padding and margin */
+    .container {
+        padding: 10px;
+    }
+
+    .analytics h1 {
+        margin-top: 200px;
+    }
+}
+
+/* Very small devices (phones) */
+@media screen and (max-width: 480px) {
+    h1 {
+        font-size: 1.5em;
+    }
+
+    .nav-button {
+        font-size: 1em;
+        padding: 10px 20px;
+    }
+
+    .card {
+        width: 90%;
+    }
+
+    .card-info h2 {
+        font-size: 1.2em;
+    }
+
+    .card-info p {
+        font-size: 1em;
+    }
+
+    .navbar nav ul li a {
+        font-size: 1em;
+    }
+
+    /* Adjust padding for small screens */
+    .container {
+        padding: 5px;
+    }
 }
