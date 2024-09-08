@@ -4,18 +4,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Employee Data Entry</title>
+    <title>New Employee</title>
     <link rel="stylesheet" href="dataEntry.css">
     <script src="https://apis.google.com/js/api.js"></script>
     <link rel="icon" href="images/favicon.png" type="image/png"><!----fav-icon for the browser---->
 </head>
 
 <body>
+    <div class="header">
+        <div class="navbar">
+            <div class="logo">
+                <a href="home.html"><img src="images/logo.png" width="150px"></a>
+            </div>
+            <nav>
+                <ul id="menuItems">
+                    <!--add clickable menu using tag <a></a> to link pages-->
+                    <li><a href="dataTable.html" class="nav-button">Manage Employees</a></li>
+                    <li><a href="home.html" class="nav-button">Home</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
     <div class="container">
-
+        <br>
+        <br>
         <a href="home.html" class="nav-button">Back</a>
-
-        <h1>Employee Data Entry</h1>
+        <br>
+        <br>
+        <h1>Enter New Employee</h1>
+        <br>
         <form id="employeeForm">
             <div class="form-columns">
                 <!-- Column 1: Personal Information -->
@@ -104,8 +122,8 @@
                         <select id="employeeType" required>
                             <option value="">Select</option>
                             <option value="Primary Employee">Primary Employee</option>
-                            <option value="Secondary Employee">Secondary Employee</option>
-                            <option value="Consultant">Consultant</option>
+                            <!--<option value="Secondary Employee">Secondary Employee</option>
+                            <option value="Consultant">Consultant</option>-->
                         </select>
 
                         <label for="contractStartDate">Contract Start Date: <span class="required">*</span></label>
@@ -140,7 +158,6 @@
                 </div>
             </div>
             <button type="button" id="saveBtn">Save and Continue</button>
-            <button type="button" id="toDataTableBtn">View Active Employees</button>
         </form>
     </div>
 

@@ -4,19 +4,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Employee Data Table</title>
+    <title>Employees</title>
     <link rel="stylesheet" href="dataTable.css">
     <link rel="icon" href="images/favicon.png" type="image/png"><!----fav-icon for the browser---->
 </head>
 
 <body>
+    <div class="header">
+        <div class="navbar">
+            <div class="logo">
+                <a href="home.html"><img src="images/logo.png" width="150px"></a>
+            </div>
+            <nav>
+                <ul id="menuItems">
+                    <!--add clickable menu using tag <a></a> to link pages-->
+                    <li><a href="dataEntry.html" class="nav-button">New Employee</a></li>
+                    <li><a href="home.html" class="nav-button">Home</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
     <div class="container">
-
+        <br>
+        <br>
         <a href="home.html" class="nav-button">Back</a>
-
-        <h1>Employee Data Table</h1>
-        <input type="text" id="searchBar" placeholder="Search by First Name">
-
+        <br>
+        <br>
+        <h1>Employees</h1>
+        <br>
+        <br>
+        <input type="text" id="searchBar" placeholder="Search by Names">
+        <br>
+        <br>
         <!-- Tabs -->
         <div class="tab">
             <button class="tablinks" onclick="openTab(event, 'Active')">Active Employees</button>
@@ -28,7 +47,7 @@
             <table id="activeEmployeeTable">
                 <thead>
                     <tr>
-                        <th>Employee Number</th>
+                        <th>Reg No.</th>
                         <th>First Name</th>
                         <th>Last Name</th>
                         <th>Job Title</th>
@@ -48,7 +67,7 @@
             <table id="inactiveEmployeeTable">
                 <thead>
                     <tr>
-                        <th>Employee Number</th>
+                        <th>Reg No.</th>
                         <th>First Name</th>
                         <th>Last Name</th>
                         <th>Job Title</th>
@@ -63,8 +82,14 @@
                 <tbody></tbody>
             </table>
         </div>
-
+        <br>
+        <br>
         <button id="resetDataBtn">Delete All</button>
+        <br>
+        <br>
+        <br>
+        <!-- Add this button below the "Delete All" button -->
+        <button id="viewPayrollBtn">View Payroll</button>
 
     </div>
 
@@ -112,7 +137,32 @@
         // Show the default tab
         document.addEventListener("DOMContentLoaded", function () {
             document.querySelector(".tablinks").click(); // Show the first tab by default
+            fetchEmployeeData(); // Fetch data on load
         });
+
+        // Search functionality
+        document.getElementById('searchBar').addEventListener('input', function () {
+            let searchValue = this.value.toLowerCase();
+            filterTable(searchValue);
+        });
+
+        function filterTable(searchValue) {
+            let tables = [document.getElementById('activeEmployeeTable'), document.getElementById('inactiveEmployeeTable')];
+            tables.forEach(table => {
+                let rows = table.getElementsByTagName('tr');
+                for (let i = 1; i < rows.length; i++) {
+                    let cells = rows[i].getElementsByTagName('td');
+                    let found = false;
+                    for (let j = 1; j < cells.length - 1; j++) {
+                        if (cells[j].textContent.toLowerCase().includes(searchValue)) {
+                            found = true;
+                            break;
+                        }
+                    }
+                    rows[i].style.display = found ? '' : 'none';
+                }
+            });
+        }
     </script>
 </body>
 

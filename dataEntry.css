@@ -1,25 +1,69 @@
-/* style.css */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f5deb3;
-    /* Goldish color */
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
+body {
+    font-family: Arial, sans-serif;
+    padding-top: 70px;
+    background-color: #f5dede;
+}
+
+/* Container Styling */
 .container {
     max-width: 1200px;
-    margin: 20px auto;
-    align-items: center;
+    margin: 0 auto;
     padding: 20px;
-    background-color: #f5dede;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-h1,
-h2 {
-    text-align: center;
+.navbar {
+    position: fixed;
+    width: 100%;
+    display: flex;
+    top: 0;
+    align-items: center;
+    padding: 20px;
+    background-color: #f5deb3;
+    z-index: 1000;
+    /* Ensure it appears above other elements */
+    box-shadow: 0px 4px 2px -2px gray;
+    /* Optional: adds a subtle shadow */
+}
+
+
+nav {
+    flex: 1;
+    text-align: right;
+}
+
+nav ul {
+    display: inline-block;
+    list-style: none;
+}
+
+nav ul li {
+    display: inline-block;
+    margin-right: 15px;
+}
+
+nav ul li a {
+    display: inline-block;
+    margin-right: 15px;
+    transition: color 0s ease;
+}
+
+.navbar nav ul li a:hover {
+    color: #f0f0f0;
+    /* Color when hovering over a link */
+    background-color: orange;
+    /* Background color when hovering */
+    border-radius: 5px;
+    /* Optional: add rounded corners */
+}
+
+h1 {
+    color: gray;
 }
 
 form {

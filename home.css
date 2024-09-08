@@ -5,7 +5,7 @@
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: Arial, sans-serif;
     padding-top: 70px;
     background-color: #f5dede;
 }
@@ -88,7 +88,7 @@ nav ul li a {
 .navbar nav ul li a:hover {
     color: #f0f0f0;
     /* Color when hovering over a link */
-    background-color: #555;
+    background-color: orange;
     /* Background color when hovering */
     border-radius: 5px;
     /* Optional: add rounded corners */
@@ -97,6 +97,11 @@ nav ul li a {
 
 .analytics {
     text-align: center;
+}
+
+.analytics h1 {
+    color: #fff;
+    margin-top: 20px;
 }
 
 .card-container {

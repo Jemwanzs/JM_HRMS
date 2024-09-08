@@ -114,16 +114,6 @@ document.getElementById('saveBtn').addEventListener('click', function () {
     alert('Employee data saved successfully!');
 });
 
-
-////
-
-///
-
-// Navigate to dataTable.html
-document.getElementById('toDataTableBtn').addEventListener('click', function () {
-    window.location.href = 'dataTable.html';
-});
-
 // Auto-calculate contract period
 document.getElementById('contractEndDate').addEventListener('change', function () {
     const startDate = new Date(document.getElementById('contractStartDate').value);

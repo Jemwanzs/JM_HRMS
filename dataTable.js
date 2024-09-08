@@ -263,3 +263,24 @@ document.getElementById('searchBar').addEventListener('input', function () {
         row.style.display = matches ? '' : 'none';
     });
 });
+
+
+// Add this function to handle the transfer of active employees
+document.getElementById('viewPayrollBtn').addEventListener('click', function () {
+    const activeEmployees = Array.from(document.querySelectorAll('#activeEmployeeTable tbody tr')).map(row => {
+        const cells = row.getElementsByTagName('td');
+        return {
+            employeeNumber: cells[0].textContent,
+            firstName: cells[1].textContent,
+            lastName: cells[2].textContent,
+            jobTitle: cells[3].textContent,
+            department: cells[4].textContent,
+            grossSalary: parseFloat(cells[5].textContent.replace(/,/g, ''))
+        };
+    });
+
+    // Save active employees data to localStorage
+    localStorage.setItem('payrollData', JSON.stringify(activeEmployees));
+    // Redirect to payroll.html
+    window.location.href = 'payroll.html';
+});

@@ -17,6 +17,12 @@ body {
     padding: 20px;
 }
 
+/* Heading Styling */
+h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
 .navbar {
     position: fixed;
     width: 100%;
@@ -62,8 +68,6 @@ nav ul li a {
     /* Optional: add rounded corners */
 }
 
-
-
 /* Tabs styles */
 .tab {
     display: flex;
@@ -80,7 +84,6 @@ nav ul li a {
     padding: 14px 20px;
     transition: 0.3s;
     flex: 1;
-    /* Make buttons flexible */
     text-align: center;
 }
 
@@ -103,7 +106,6 @@ nav ul li a {
 .tabcontent {
     display: none;
     width: 100%;
-    /* Full width of the container */
     padding: 20px;
     border: 1px solid #ddd;
     border-top: none;
@@ -122,7 +124,6 @@ td {
     padding: 8px;
     text-align: left;
     word-wrap: break-word;
-    /* Handle long words */
 }
 
 th {
@@ -177,9 +178,7 @@ button:hover {
     padding: 20px;
     border: 1px solid #888;
     width: 90%;
-    /* Responsive width for modal */
     max-width: 600px;
-    /* Maximum width for modal */
 }
 
 .close {
@@ -204,12 +203,10 @@ button:hover {
 
     .modal-content {
         width: 95%;
-        /* Wider width on smaller screens */
     }
 
     table {
         font-size: 14px;
-        /* Smaller font size for tables on small screens */
     }
 }
 
@@ -221,12 +218,10 @@ button:hover {
 
     .modal-content {
         width: 100%;
-        /* Full width on very small screens */
     }
 
     table {
         font-size: 12px;
-        /* Smaller font size for very small screens */
     }
 }
 
@@ -257,17 +252,89 @@ button:hover {
     text-decoration: none;
     color: #fff;
     background-color: gray;
-    /* Green background */
     border-radius: 5px;
     transition: background-color 0.3s, transform 0.3s;
 }
 
 .nav-button:hover {
     background-color: orange;
-    /* Darker green */
     transform: scale(1.05);
 }
 
 h1 {
     color: gray;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-items: center;
+    gap: 20px;
+}
+
+/* print.css */
+@media print {
+
+    .header,
+    .navbar {
+        display: none;
+    }
+
+    .container {
+        margin: 0;
+        padding: 0;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    th,
+    td {
+        border: 1px solid #000;
+        padding: 8px;
+        text-align: left;
+    }
+
+    h1,
+    p {
+        display: none;
+    }
+
+    /* Hide the print button during printing */
+    .row button {
+        display: none;
+    }
+}
+
+
+.company-name {
+    display: flex;
+    align-items: center;
+}
+
+.company-name label {
+    margin-right: 10px;
+}
+
+.company-name input {
+    padding: 5px;
+    font-size: 16px;
+    width: 200px;
+}
+
+.payroll-period {
+    display: flex;
+    align-items: center;
+}
+
+.payroll-period label {
+    margin-right: 10px;
+}
+
+.payroll-period input {
+    padding: 5px;
+    font-size: 16px;
 }

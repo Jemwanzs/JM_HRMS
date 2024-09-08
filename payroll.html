@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Master Payroll</title>
+    <link rel="stylesheet" href="payroll.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+</head>
+
+<body>
+    <div class="header">
+        <div class="navbar">
+            <div class="logo">
+                <a href="home.html"><img src="images/logo.png" width="150px"></a>
+            </div>
+            <nav>
+                <ul id="menuItems">
+                    <!--add clickable menu using tag <a></a> to link pages-->
+                    <li><a href="dataEntry.html" class="nav-button">New Employee</a></li>
+                    <li><a href="dataTable.html" class="nav-button">Manage Employees</a></li>
+                    <li><a href="home.html" class="nav-button">Home</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <div class="container">
+        <br>
+        <br>
+        <h1>Master Payroll</h1>
+        <hr>
+        <br>
+        <div class="row">
+            <div class="company-name">
+                <label for="companyName">Company Name:</label>
+                <input type="text" id="companyName" name="companyName" placeholder="Enter Company Name">
+            </div>
+            <div class="payroll-period">
+                <label for="payrollPeriod">Payroll Period:</label>
+                <input type="month" id="payrollPeriod" name="payrollPeriod">
+            </div>
+            <button onclick="printPayroll()">Print</button>
+        </div>
+        <br>
+        <hr>
+        <br>
+        <!-- Payroll Table -->
+        <table id="payrollTable">
+            <thead>
+                <tr>
+                    <th>Reg No.</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Job Title</th>
+                    <th>Department</th>
+                    <th>Gross Salary</th>
+                    <th>PAYE</th>
+                    <th>NSSF</th>
+                    <th>NHIF</th>
+                    <th>AHL</th>
+                    <th>WHT</th>
+                    <th>Other Deductions</th>
+                    <th>Total Deductions</th>
+                    <th>Net Pay</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Payroll data will be dynamically inserted here by JavaScript -->
+            </tbody>
+        </table>
+
+        <!-- Modal for editing deductions -->
+        <div id="deductionsModal" style="display:none;">
+            <h2>Edit Other Deductions</h2>
+            <form id="deductionsForm">
+                <label for="otherDeductions">Other Deductions: </label>
+                <input type="number" id="otherDeductions" name="otherDeductions" min="0">
+                <button type="button" id="saveDeductionsBtn">Save</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="payroll.js"></script>
+    <script>
+        function printPayroll() {
+            window.print();
+        }
+    </script>
+</body>
+
+</html>
