@@ -31,21 +31,21 @@
         <br>
         <br>
         <h1>Master Payroll</h1>
-        <hr>
+        <hr class="row">
         <br>
         <div class="row">
             <div class="company-name">
-                <label for="companyName">Company Name:</label>
+                <label for="companyName" style="color: gray;">Company Name:</label>
                 <input type="text" id="companyName" name="companyName" placeholder="Enter Company Name">
             </div>
             <div class="payroll-period">
-                <label for="payrollPeriod">Payroll Period:</label>
+                <label for="payrollPeriod" style="color: gray;">Payroll Period:</label>
                 <input type="month" id="payrollPeriod" name="payrollPeriod">
             </div>
             <button onclick="printPayroll()">Print</button>
         </div>
+        <hr class="row">
         <br>
-        <hr>
         <br>
         <!-- Payroll Table -->
         <table id="payrollTable">

@@ -10,6 +10,16 @@ function loadPayrollData() {
     // Retrieve payroll data from localStorage
     const employees = JSON.parse(localStorage.getItem('payrollData')) || [];
 
+    // Initialize totals
+    let totalGrossSalary = 0;
+    let totalPAYE = 0;
+    let totalNSSF = 0;
+    let totalNHIF = 0;
+    let totalAHL = 0;
+    let totalWHT = 0;
+    let totalDeductions = 0;
+    let totalNetPay = 0;
+
     employees.forEach((employee, index) => {
         const paye = calculatePAYE(employee.grossSalary);
         const nssf = calculateNSSF(employee.grossSalary);
@@ -17,8 +27,18 @@ function loadPayrollData() {
         const ahl = calculateAHL(employee.grossSalary);
         const wht = calculateWHT(employee.grossSalary);
         const otherDeductions = 0; // Initially zero, but editable
-        const totalDeductions = paye + nssf + nhif + ahl + wht + otherDeductions;
-        const netPay = employee.grossSalary - totalDeductions;
+        const totalDeductionsForRow = paye + nssf + nhif + ahl + wht + otherDeductions;
+        const netPay = employee.grossSalary - totalDeductionsForRow;
+
+        // Add to totals
+        totalGrossSalary += employee.grossSalary;
+        totalPAYE += paye;
+        totalNSSF += nssf;
+        totalNHIF += nhif;
+        totalAHL += ahl;
+        totalWHT += wht;
+        totalDeductions += totalDeductionsForRow;
+        totalNetPay += netPay;
 
         const row = document.createElement('tr');
 
@@ -35,7 +55,7 @@ function loadPayrollData() {
             <td>${formatWithCommas(ahl.toFixed(2))}</td>
             <td>${formatWithCommas(wht.toFixed(2))}</td>
             <td><input type="number" id="otherDeductions-${index}" value="${otherDeductions.toFixed(2)}" class="other-deductions" data-index="${index}"></td>
-            <td id="totalDeductions-${index}">${formatWithCommas(totalDeductions.toFixed(2))}</td>
+            <td id="totalDeductions-${index}">${formatWithCommas(totalDeductionsForRow.toFixed(2))}</td>
             <td id="netPay-${index}">${formatWithCommas(netPay.toFixed(2))}</td>
             <td><button onclick="generatePayslip(${index})">Salary Slip</button></td>
         `;
@@ -43,7 +63,24 @@ function loadPayrollData() {
         payrollTableBody.appendChild(row);
     });
 
-    // Add event listeners to handle other deductions edits
+    // Add totals row
+    const totalsRow = document.createElement('tr');
+    totalsRow.innerHTML = `
+        <td colspan="5" style="font-weight:bold;">Totals</td>
+        <td style="font-weight:bold;">${formatWithCommas(totalGrossSalary.toFixed(2))}</td>
+        <td style="font-weight:bold;">${formatWithCommas(totalPAYE.toFixed(2))}</td>
+        <td style="font-weight:bold;">${formatWithCommas(totalNSSF.toFixed(2))}</td>
+        <td style="font-weight:bold;">${formatWithCommas(totalNHIF.toFixed(2))}</td>
+        <td style="font-weight:bold;">${formatWithCommas(totalAHL.toFixed(2))}</td>
+        <td style="font-weight:bold;">${formatWithCommas(totalWHT.toFixed(2))}</td>
+        <td></td>
+        <td style="font-weight:bold;">${formatWithCommas(totalDeductions.toFixed(2))}</td>
+        <td style="font-weight:bold;">${formatWithCommas(totalNetPay.toFixed(2))}</td>
+        <td></td>
+    `;
+    payrollTableBody.appendChild(totalsRow);
+
+    // Add event listeners for other deductions
     document.querySelectorAll('.other-deductions').forEach(input => {
         input.addEventListener('change', function () {
             const index = this.getAttribute('data-index');
@@ -53,6 +90,57 @@ function loadPayrollData() {
     });
 }
 
+// Update totals when deductions change
+function updateTotals() {
+    let totalGrossSalary = 0;
+    let totalPAYE = 0;
+    let totalNSSF = 0;
+    let totalNHIF = 0;
+    let totalAHL = 0;
+    let totalWHT = 0;
+    let totalDeductions = 0;
+    let totalNetPay = 0;
+
+    const employees = JSON.parse(localStorage.getItem('payrollData')) || [];
+
+    employees.forEach((employee, index) => {
+        const paye = calculatePAYE(employee.grossSalary);
+        const nssf = calculateNSSF(employee.grossSalary);
+        const nhif = calculateNHIF(employee.grossSalary);
+        const ahl = calculateAHL(employee.grossSalary);
+        const wht = calculateWHT(employee.grossSalary);
+        const otherDeductions = parseFloat(document.getElementById(`otherDeductions-${index}`).value) || 0;
+        const totalDeductionsForRow = paye + nssf + nhif + ahl + wht + otherDeductions;
+        const netPay = employee.grossSalary - totalDeductionsForRow;
+
+        totalGrossSalary += employee.grossSalary;
+        totalPAYE += paye;
+        totalNSSF += nssf;
+        totalNHIF += nhif;
+        totalAHL += ahl;
+        totalWHT += wht;
+        totalDeductions += totalDeductionsForRow;
+        totalNetPay += netPay;
+    });
+
+    document.querySelector('#totalsRow .totalGrossSalary').textContent = formatWithCommas(totalGrossSalary.toFixed(2));
+    document.querySelector('#totalsRow .totalPAYE').textContent = formatWithCommas(totalPAYE.toFixed(2));
+    document.querySelector('#totalsRow .totalNSSF').textContent = formatWithCommas(totalNSSF.toFixed(2));
+    document.querySelector('#totalsRow .totalNHIF').textContent = formatWithCommas(totalNHIF.toFixed(2));
+    document.querySelector('#totalsRow .totalAHL').textContent = formatWithCommas(totalAHL.toFixed(2));
+    document.querySelector('#totalsRow .totalWHT').textContent = formatWithCommas(totalWHT.toFixed(2));
+    document.querySelector('#totalsRow .totalDeductions').textContent = formatWithCommas(totalDeductions.toFixed(2));
+    document.querySelector('#totalsRow .totalNetPay').textContent = formatWithCommas(totalNetPay.toFixed(2));
+}
+
+// Add event listeners to handle other deductions edits
+document.querySelectorAll('.other-deductions').forEach(input => {
+    input.addEventListener('change', function () {
+        const index = this.getAttribute('data-index');
+        const otherDeductions = parseFloat(this.value) || 0;
+        updatePayrollRow(index, otherDeductions);
+    });
+});
 
 function updatePayrollRow(index, otherDeductions) {
     const employees = JSON.parse(localStorage.getItem('payrollData')) || [];
