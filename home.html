@@ -19,9 +19,9 @@
             <nav>
                 <ul id="menuItems">
                     <!--add clickable menu using tag <a></a> to link pages-->
-                    <li><a href="dataEntry.html" class="nav-button">New Employee</a></li>
+                    <li><a href="dataEntry.html" class="nav-button">Add Employees</a></li>
                     <li><a href="dataTable.html" class="nav-button">Manage Employees</a></li>
-                    <li><a href="payroll.html" class="nav-button">Payroll</a></li>
+                    <!--<li><a href="payroll.html" class="nav-button">Payroll</a></li>-->
                 </ul>
             </nav>
         </div>
@@ -42,12 +42,12 @@
                     </div>
                     <div class="card-info">
                         <h2>Total Employees</h2>
-                        <p>10</p>
+                        <p id="totalEmployees">0</p>
                     </div>
                 </div>
                 <div class="card">
                     <div class="card-icon">
-                        <!-- Icon for Payroll Expenses -->
+                        <!-- Icon for Gross Payroll -->
                         <svg width="50" height="50" xmlns="http://www.w3.org/2000/svg">
                             <rect width="40" height="40" fill="#FFC107" />
                             <text x="50%" y="50%" text-anchor="middle" stroke="#51c5cf" stroke-width="1px" dy=".3em"
@@ -56,91 +56,92 @@
                     </div>
                     <div class="card-info">
                         <h2>Gross Payroll</h2>
-                        <p>Kes 500,000</p>
+                        <p id="totalSalaries">Kes 0</p>
                     </div>
                 </div>
                 <div class="card">
                     <div class="card-icon">
-                        <!-- Icon for Payroll Expenses -->
+                        <!-- Icon for Deductions -->
                         <svg width="50" height="50" xmlns="http://www.w3.org/2000/svg">
-                            <rect width="40" height="40" fill="#FFC107" />
+                            <circle cx="25" cy="25" r="20" stroke="black" stroke-width="2" fill="#F44336" />
                             <text x="50%" y="50%" text-anchor="middle" stroke="#51c5cf" stroke-width="1px" dy=".3em"
-                                fill="#fff">P</text>
+                                fill="#fff">D</text>
                         </svg>
                     </div>
                     <div class="card-info">
-                        <h2>Deductions</h2>
-                        <p>Kes 100,000</p>
+                        <h2>Total Deductions</h2>
+                        <p id="totalDeductions">Kes 0</p>
                     </div>
                 </div>
                 <div class="card">
                     <div class="card-icon">
-                        <!-- Icon for Payroll Expenses -->
+                        <!-- Icon for Net Payroll -->
                         <svg width="50" height="50" xmlns="http://www.w3.org/2000/svg">
-                            <rect width="40" height="40" fill="#FFC107" />
+                            <rect width="40" height="40" fill="#009688" />
                             <text x="50%" y="50%" text-anchor="middle" stroke="#51c5cf" stroke-width="1px" dy=".3em"
-                                fill="#fff">P</text>
+                                fill="#fff">N</text>
                         </svg>
                     </div>
                     <div class="card-info">
                         <h2>Net Payroll</h2>
-                        <p>Kes 400,000</p>
+                        <p id="totalNetPay">Kes 0</p>
                     </div>
                 </div>
+                <!-- Additional cards for PAYE, NSSF, NHIF, AHL -->
                 <div class="card">
                     <div class="card-icon">
-                        <!-- Icon for Payroll Expenses -->
+                        <!-- Icon for PAYE -->
                         <svg width="50" height="50" xmlns="http://www.w3.org/2000/svg">
-                            <rect width="40" height="40" fill="#FFC107" />
+                            <circle cx="25" cy="25" r="20" stroke="black" stroke-width="2" fill="#3F51B5" />
                             <text x="50%" y="50%" text-anchor="middle" stroke="#51c5cf" stroke-width="1px" dy=".3em"
-                                fill="#fff">P</text>
+                                fill="#fff">Y</text>
                         </svg>
                     </div>
                     <div class="card-info">
                         <h2>PAYE</h2>
-                        <p>Kes 50,000</p>
+                        <p id="tpaye">Kes 0</p>
                     </div>
                 </div>
                 <div class="card">
                     <div class="card-icon">
-                        <!-- Icon for Payroll Expenses -->
+                        <!-- Icon for NSSF -->
                         <svg width="50" height="50" xmlns="http://www.w3.org/2000/svg">
-                            <rect width="40" height="40" fill="#FFC107" />
+                            <circle cx="25" cy="25" r="20" stroke="black" stroke-width="2" fill="#FF5722" />
                             <text x="50%" y="50%" text-anchor="middle" stroke="#51c5cf" stroke-width="1px" dy=".3em"
-                                fill="#fff">P</text>
-                        </svg>
-                    </div>
-                    <div class="card-info">
-                        <h2>NHIF</h2>
-                        <p>Kes 20,000</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-icon">
-                        <!-- Icon for Payroll Expenses -->
-                        <svg width="50" height="50" xmlns="http://www.w3.org/2000/svg">
-                            <rect width="40" height="40" fill="#FFC107" />
-                            <text x="50%" y="50%" text-anchor="middle" stroke="#51c5cf" stroke-width="1px" dy=".3em"
-                                fill="#fff">P</text>
+                                fill="#fff">N</text>
                         </svg>
                     </div>
                     <div class="card-info">
                         <h2>NSSF</h2>
-                        <p>Kes 25,000</p>
+                        <p id="tnssf">Kes 0</p>
                     </div>
                 </div>
                 <div class="card">
                     <div class="card-icon">
-                        <!-- Icon for Payroll Expenses -->
+                        <!-- Icon for NHIF -->
                         <svg width="50" height="50" xmlns="http://www.w3.org/2000/svg">
-                            <rect width="40" height="40" fill="#FFC107" />
+                            <circle cx="25" cy="25" r="20" stroke="black" stroke-width="2" fill="#8BC34A" />
                             <text x="50%" y="50%" text-anchor="middle" stroke="#51c5cf" stroke-width="1px" dy=".3em"
-                                fill="#fff">P</text>
+                                fill="#fff">H</text>
+                        </svg>
+                    </div>
+                    <div class="card-info">
+                        <h2>NHIF</h2>
+                        <p id="tnhif">Kes 0</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-icon">
+                        <!-- Icon for AHL -->
+                        <svg width="50" height="50" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="25" cy="25" r="20" stroke="black" stroke-width="2" fill="#607D8B" />
+                            <text x="50%" y="50%" text-anchor="middle" stroke="#51c5cf" stroke-width="1px" dy=".3em"
+                                fill="#fff">A</text>
                         </svg>
                     </div>
                     <div class="card-info">
                         <h2>AHL</h2>
-                        <p>Kes 5,000</p>
+                        <p id="tahl">Kes 0</p>
                     </div>
                 </div>
                 <div class="card">
@@ -149,17 +150,18 @@
                         <svg width="50" height="50" xmlns="http://www.w3.org/2000/svg">
                             <ellipse cx="25" cy="25" rx="20" ry="10" fill="#2196F3" />
                             <text x="50%" y="50%" text-anchor="middle" stroke="#51c5cf" stroke-width="1px" dy=".3em"
-                                fill="#fff">S</text>
+                                fill="#fff">AS</text>
                         </svg>
                     </div>
                     <div class="card-info">
                         <h2>Average Salary</h2>
-                        <p>Kes 50,000</p>
+                        <p id="avSalary">Kes 0</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <script src="home.js"></script>
 </body>
 
 </html>

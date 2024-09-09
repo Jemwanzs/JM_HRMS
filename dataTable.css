@@ -26,8 +26,11 @@ body {
     padding: 20px;
     background-color: #f5deb3;
     z-index: 1000;
+    /* Ensure it appears above other elements */
     box-shadow: 0px 4px 2px -2px gray;
+    /* Optional: adds a subtle shadow */
 }
+
 
 nav {
     flex: 1;
@@ -52,9 +55,14 @@ nav ul li a {
 
 .navbar nav ul li a:hover {
     color: #f0f0f0;
+    /* Color when hovering over a link */
     background-color: orange;
+    /* Background color when hovering */
     border-radius: 5px;
+    /* Optional: add rounded corners */
 }
+
+
 
 /* Tabs styles */
 .tab {
@@ -72,6 +80,7 @@ nav ul li a {
     padding: 14px 20px;
     transition: 0.3s;
     flex: 1;
+    /* Make buttons flexible */
     text-align: center;
 }
 
@@ -94,6 +103,7 @@ nav ul li a {
 .tabcontent {
     display: none;
     width: 100%;
+    /* Full width of the container */
     padding: 20px;
     border: 1px solid #ddd;
     border-top: none;
@@ -112,13 +122,27 @@ td {
     padding: 8px;
     text-align: left;
     word-wrap: break-word;
+    /* Handle long words */
 }
 
 th {
     background-color: #f2f2f2;
 }
 
-/* Button styling */
+label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
 button {
     width: 200px;
     padding: 10px;
@@ -153,7 +177,9 @@ button:hover {
     padding: 20px;
     border: 1px solid #888;
     width: 90%;
+    /* Responsive width for modal */
     max-width: 600px;
+    /* Maximum width for modal */
 }
 
 .close {
@@ -170,29 +196,6 @@ button:hover {
     cursor: pointer;
 }
 
-/* Navigation Button Styling */
-.nav-buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.nav-button {
-    display: inline-block;
-    padding: 15px 25px;
-    font-size: 1.2em;
-    text-decoration: none;
-    color: #fff;
-    background-color: gray;
-    border-radius: 5px;
-    transition: background-color 0.3s, transform 0.3s;
-}
-
-.nav-button:hover {
-    background-color: orange;
-    transform: scale(1.05);
-}
-
 /* Responsive Design */
 @media (max-width: 768px) {
     .tab button {
@@ -201,29 +204,12 @@ button:hover {
 
     .modal-content {
         width: 95%;
+        /* Wider width on smaller screens */
     }
 
     table {
         font-size: 14px;
-    }
-
-    .navbar {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .navbar nav ul {
-        display: flex;
-        flex-direction: column;
-        padding: 10px 0;
-    }
-
-    #searchBar {
-        width: 80%;
-    }
-
-    h1 {
-        margin-top: 75px;
+        /* Smaller font size for tables on small screens */
     }
 }
 
@@ -235,25 +221,89 @@ button:hover {
 
     .modal-content {
         width: 100%;
+        /* Full width on very small screens */
     }
 
     table {
         font-size: 12px;
+        /* Smaller font size for very small screens */
     }
+}
 
-    th,
-    td {
-        font-size: 10px;
-        padding: 5px;
+#backBtn {
+    margin-bottom: 25px;
+}
+
+.terminate-btn {
+    background-color: red;
+    color: white;
+    padding: 5px 10px;
+}
+
+.activate-btn {
+    background-color: green;
+    color: white;
+    padding: 5px 10px;
+}
+
+#searchBar {
+    width: 400px;
+}
+
+.nav-button {
+    display: inline-block;
+    padding: 10px 15px;
+    font-size: 1em;
+    text-decoration: none;
+    color: blue;
+    background-color: white;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.nav-button:hover {
+    background-color: orange;
+    /* Darker green */
+    transform: scale(1.05);
+}
+
+h1 {
+    color: gray;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
     }
 
     .navbar {
         flex-direction: column;
-        text-align: center;
+        align-items: flex-start;
+        padding: 10px;
     }
 
-    .tab {
-        flex-direction: column;
+    nav ul {
+        padding-left: 0;
+    }
+
+    nav ul li {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    .tab button {
+        padding: 12px 16px;
+    }
+
+    .modal-content {
+        width: 95%;
+    }
+
+    table {
+        font-size: 14px;
+        overflow-x: auto;
+        /* Allow horizontal scrolling for tables */
     }
 
     #searchBar {
@@ -262,26 +312,53 @@ button:hover {
 
     button {
         width: 100%;
-        margin-bottom: 10px;
     }
 
-    /* Stack the header elements vertically */
-    .logo {
+    .nav-button {
+        width: 100%;
         text-align: center;
     }
+}
 
-    .nav ul {
-        text-align: center;
-        padding: 0;
+@media (max-width: 480px) {
+    .navbar {
+        padding: 5px;
     }
 
-    .nav ul li {
-        display: block;
-        margin-bottom: 10px;
+    .tab button {
+        padding: 10px 12px;
+        font-size: 14px;
     }
 
-    /* Adjust padding for smaller screens */
+    .modal-content {
+        width: 100%;
+    }
+
+    table {
+        font-size: 12px;
+        overflow-x: auto;
+        /* Horizontal scrolling on very small screens */
+    }
+
     .container {
+        padding: 5px;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    .nav-button {
+        width: 100%;
+        font-size: 1em;
+    }
+
+    #searchBar {
+        width: 100%;
+    }
+
+    button {
+        width: 100%;
         padding: 10px;
     }
 }
