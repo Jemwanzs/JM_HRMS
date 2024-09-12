@@ -178,9 +178,8 @@ button:hover {
     padding: 20px;
     border: 1px solid #888;
     width: 90%;
-    /* Responsive width for modal */
     max-width: 600px;
-    /* Maximum width for modal */
+    border-radius: 10px;
 }
 
 .close {

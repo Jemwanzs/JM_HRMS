@@ -7,14 +7,16 @@
 body {
     font-family: Arial, sans-serif;
     padding-top: 70px;
-    background-color: #f5dede;
+    background-color: #fff;
 }
 
 /* Container Styling */
 .container {
     max-width: 1200px;
-    margin-left: 100px;
-    padding: 20px;
+    margin: 0 auto;
+    font-size: 0.8em;
+    padding: 10px;
+    background-color: #fff;
 
 }
 
@@ -31,7 +33,6 @@ body {
     box-shadow: 0px 4px 2px -2px gray;
     /* Optional: adds a subtle shadow */
 }
-
 
 nav {
     flex: 1;
@@ -92,21 +93,6 @@ h1 {
     transform: scale(1.05);
 }
 
-/* Responsive Navbar for Smaller Screens */
-@media (max-width: 768px) {
-    .navbar {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 15px;
-    }
-
-    nav ul {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
-    }
-}
-
 /* Form Styles */
 .company-name,
 .payroll-period {
@@ -128,20 +114,10 @@ h1 {
     max-width: 300px;
 }
 
-/* Responsive Input Fields */
-@media (max-width: 768px) {
-
-    .company-name input,
-    .payroll-period input {
-        max-width: 100%;
-    }
-}
-
 .row {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    width: 1390px;
 }
 
 button {
@@ -178,6 +154,10 @@ td {
 th {
     background-color: #f2f2f2;
 }
+
+/*//
+//
+//*/
 
 /* Responsive Table Adjustments */
 @media (max-width: 768px) {
@@ -248,12 +228,28 @@ th {
     }
 }
 
-/* Modal Styles */
-.modal-content {
-    max-width: 90%;
-    margin: 5% auto;
-    padding: 20px;
-    border: 1px solid #888;
+/* Responsive Input Fields */
+@media (max-width: 768px) {
+
+    .company-name input,
+    .payroll-period input {
+        max-width: 100%;
+    }
+}
+
+/* Responsive Navbar for Smaller Screens */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
 }
 
 /* Print Styles */

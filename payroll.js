@@ -261,8 +261,21 @@ async function generatePayslip(index) {
     const netPay = employee.grossSalary - totalDeductions;
 
     // Retrieve company name and payroll period from inputs
-    const companyName = document.getElementById('companyName').value || 'Company Name';
-    const payrollPeriod = document.getElementById('payrollPeriod').value || 'Payroll Period';
+    const companyName = document.getElementById('companyName').value.trim();
+    const payrollPeriod = document.getElementById('payrollPeriod').value.trim();
+
+    // Check for empty values
+    if (!companyName) {
+        alert('Please enter the company name.');
+        return; // Prevent further execution
+    }
+
+    if (!payrollPeriod) {
+        alert('Please enter the payroll period.');
+        return; // Prevent further execution
+    }
+
+    // Continue processing if both fields are filled
 
     doc.setFontSize(12);
     doc.setFont("helvetica", "normal");
