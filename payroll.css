@@ -190,42 +190,6 @@ th {
         padding: 5px;
         /* Reduce padding for smaller screens */
     }
-
-    /* Hide table headers */
-    table thead {
-        display: none;
-    }
-
-    /* Make table rows block-level elements */
-    table tr {
-        display: block;
-        margin-bottom: 15px;
-        /* Space between rows */
-    }
-
-    /* Style for table cells */
-    table td {
-        display: block;
-        text-align: right;
-        position: relative;
-        padding-left: 50%;
-        padding-bottom: 10px;
-        /* Space at bottom of cells */
-    }
-
-    /* Add labels for table cells */
-    table td::before {
-        content: attr(data-label);
-        /* Use the data-label attribute for cell labels */
-        position: absolute;
-        left: 0;
-        width: 50%;
-        padding-left: 10px;
-        font-weight: bold;
-        text-align: left;
-        white-space: nowrap;
-        /* Prevent text from wrapping */
-    }
 }
 
 /* Responsive Input Fields */
