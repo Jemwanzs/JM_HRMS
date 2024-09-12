@@ -359,3 +359,23 @@ async function generatePayslip(index) {
     // Save the PDF
     doc.save(`Payslip_${employee.employeeNumber}.pdf`);
 }
+
+function printPayroll() {
+    // Retrieve company name and payroll period from inputs
+    const companyName = document.getElementById('companyName').value.trim();
+    const payrollPeriod = document.getElementById('payrollPeriod').value.trim();
+
+    // Check for empty values
+    if (!companyName) {
+        alert('Please enter the company name.');
+        return; // Prevent further execution
+    }
+
+    if (!payrollPeriod) {
+        alert('Please enter the payroll period.');
+        return; // Prevent further execution
+    }
+
+    // Continue processing if both fields are filled
+    window.print();
+}
