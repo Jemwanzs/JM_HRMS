@@ -182,4 +182,13 @@ button:hover {
     .form-container {
         order: 2;
     }
+
+    /* Heading styles for introduction */
+    .intro-container h2 {
+        margin-top: 250px;
+    }
+
+    .input-group input {
+        width: 100%;
+    }
 }
