@@ -31,9 +31,35 @@ body {
     /* Optional: adds a subtle shadow */
 }
 
+/* Style the <ul> list */
+#menuItems {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    justify-content: flex-end;
+    /* Push items to the right */
+}
+
 nav {
     flex: 1;
     text-align: right;
+    align-items: center;
+    justify-content: flex-end;
+    /* Ensure the nav aligns items to the right */
+}
+
+#logout-btn {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    /* Makes the image behave like a button */
+    transition: transform 0.3s ease;
+    /* Optional: Add a hover effect */
+}
+
+#logout-btn:hover {
+    transform: scale(1.25);
+    /* Slight zoom effect on hover */
 }
 
 nav ul {

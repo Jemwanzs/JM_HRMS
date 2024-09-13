@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple HRMIS</title>
+    <link rel="stylesheet" href="login.css">
+    <link rel="icon" href="images/favicon1.png" type="image/png">
+</head>
+
+<body>
+    <div class="container">
+        <div class="form-container" id="login-form">
+            <h2>Login</h2>
+            <form id="login" onsubmit="handleLogin(event)">
+                <div class="input-group">
+                    <label for="login-email">Email</label>
+                    <input type="email" id="login-email" placeholder="Enter your email" required>
+                </div>
+                <div class="input-group">
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" placeholder="Enter your password" required>
+                </div>
+                <button type="submit">Login</button>
+                <p class="toggle-form">Don't have an account? <a href="#" onclick="toggleForm()">Sign Up</a></p>
+            </form>
+        </div>
+
+        <div class="form-container hidden" id="signup-form">
+            <h2>Sign Up</h2>
+            <form id="signup" onsubmit="handleSignup(event)">
+                <div class="input-group">
+                    <label for="signup-email">Email</label>
+                    <input type="email" id="signup-email" placeholder="Enter your email" required>
+                </div>
+                <div class="input-group">
+                    <label for="signup-password">Password</label>
+                    <input type="password" id="signup-password" placeholder="Enter your password" required>
+                </div>
+                <button type="submit">Sign Up</button>
+                <p class="toggle-form">Already have an account? <a href="#" onclick="toggleForm()">Login</a></p>
+            </form>
+        </div>
+    </div>
+
+    <script src="login.js"></script>
+    <script src="protectCode.js"></script>
+</body>
+
+</html>
