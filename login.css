@@ -10,17 +10,65 @@ body {
     height: 100vh;
 }
 
+/* Container for the introduction and form */
 .container {
-    width: 100%;
-    max-width: 400px;
-    padding: 20px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    background-color: #ffffff;
+    display: flex;
+    flex-direction: row;
+    /* Default layout for larger screens */
+    width: 90%;
+    max-width: 1100px;
+    height: 60%;
     border-radius: 10px;
+    overflow: hidden;
 }
 
+/* Introduction section */
+.intro-container {
+    flex: 1;
+    padding: 20px;
+    background-color: #e0f7fa;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    border-right: 1px solid #ddd;
+    /* Divider line */
+    font-size: small;
+    align-content: center;
+}
+
+/* Heading styles for introduction */
+.intro-container h2 {
+    color: maroon;
+    margin-top: 0;
+}
+
+.intro-container h3 {
+    color: #004d40;
+}
+
+/* Text styling for introduction */
+.intro-container p,
+.intro-container ul {
+    color: #333;
+}
+
+.intro-container ul {
+    list-style-type: disc;
+    margin-left: 20px;
+}
+
+/* Form section */
+.form-container {
+    flex: 1;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Heading styles for form */
 h2 {
-    text-align: center;
     margin-bottom: 20px;
     color: #333;
 }
@@ -28,6 +76,7 @@ h2 {
 /* Input group styling */
 .input-group {
     margin-bottom: 15px;
+    width: 100%;
 }
 
 .input-group label {
@@ -38,7 +87,9 @@ h2 {
 }
 
 .input-group input {
-    width: 100%;
+    width: 300px;
+    /* Adjusted to be responsive */
+    max-width: 300px;
     padding: 10px;
     font-size: 14px;
     border: 1px solid #ddd;
@@ -84,10 +135,31 @@ button:hover {
     display: none;
 }
 
+/* Custom colors for forms */
 .signUps {
     color: orange;
 }
 
 .loginIns {
     color: green;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .intro-container {
+        order: 1;
+        /* Ensure intro-container comes first */
+        border-right: none;
+        border-bottom: 1px solid #ddd;
+        align-content: center;
+    }
+
+    .form-container {
+        order: 2;
+    }
 }
