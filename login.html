@@ -12,7 +12,7 @@
 <body>
     <div class="container">
         <div class="form-container" id="login-form">
-            <h2>Login</h2>
+            <h2 class="loginIns">Login</h2>
             <form id="login" onsubmit="handleLogin(event)">
                 <div class="input-group">
                     <label for="login-email">Email</label>
@@ -28,15 +28,15 @@
         </div>
 
         <div class="form-container hidden" id="signup-form">
-            <h2>Sign Up</h2>
+            <h2 class="signUps">Sign Up</h2>
             <form id="signup" onsubmit="handleSignup(event)">
                 <div class="input-group">
                     <label for="signup-email">Email</label>
-                    <input type="email" id="signup-email" placeholder="Enter your email" required>
+                    <input type="email" id="signup-email" placeholder="Create your email" required>
                 </div>
                 <div class="input-group">
                     <label for="signup-password">Password</label>
-                    <input type="password" id="signup-password" placeholder="Enter your password" required>
+                    <input type="password" id="signup-password" placeholder="Create your password" required>
                 </div>
                 <button type="submit">Sign Up</button>
                 <p class="toggle-form">Already have an account? <a href="#" onclick="toggleForm()">Login</a></p>

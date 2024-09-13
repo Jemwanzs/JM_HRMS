@@ -1,7 +1,7 @@
 /* General styles */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f7f7f7;
+    background-color: #88dbbf;
     margin: 0;
     padding: 0;
     display: flex;
@@ -67,7 +67,7 @@ button:hover {
     text-align: center;
     margin-top: 10px;
     font-size: 14px;
-    color: #007bff;
+    color: #666;
 }
 
 .toggle-form a {
@@ -82,4 +82,12 @@ button:hover {
 /* Hidden form for toggling */
 .hidden {
     display: none;
+}
+
+.signUps {
+    color: orange;
+}
+
+.loginIns {
+    color: green;
 }
