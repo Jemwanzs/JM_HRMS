@@ -166,7 +166,7 @@ button:hover {
     }
 
     .intro-container {
-        order: 1;
+        order: 2;
         /* Ensure intro-container comes first */
         border-right: none;
         border-bottom: 1px solid #ddd;
@@ -174,12 +174,8 @@ button:hover {
     }
 
     .form-container {
-        order: 2;
-    }
-
-    /* Heading styles for introduction */
-    .intro-container h2 {
-        margin-top: 400px;
+        order: 1;
+        margin-top: 380px;
     }
 
     .input-group input {
