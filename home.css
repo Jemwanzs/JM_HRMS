@@ -27,7 +27,7 @@ body {
     background-color: #f5deb3;
     z-index: 1000;
     /* Ensure it appears above other elements */
-    box-shadow: 0px 4px 2px -2px gray;
+    box-shadow: 0px 4px 2px -2px rgb(39, 150, 44);
     /* Optional: adds a subtle shadow */
 }
 
