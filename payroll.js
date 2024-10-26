@@ -211,7 +211,7 @@ function calculatePAYE(grossSalary) {
     const nhifAmount = calculateNHIF(grossSalary);
     const personalRelief = 2400;
     const insuranceRelief = Math.min(0.15 * nhifAmount, 5000);
-    const ahlRelief = 0.15 * calculateAHL(grossSalary);
+    const ahlRelief = Math.min(0.15 * calculateAHL(grossSalary), 9000);
 
 
     if (taxableIncome <= 24000) {
