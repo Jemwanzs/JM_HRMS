@@ -7,7 +7,7 @@
 body {
     font-family: Arial, sans-serif;
     padding-top: 70px;
-    background-color: #88dbbf;
+    background-image: linear-gradient(to right, #10cece, #f885db);
 }
 
 /* Container Styling */

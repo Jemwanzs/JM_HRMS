@@ -82,6 +82,10 @@ function calculateNHIF(grossSalary) {
     return 1700; // Max NHIF contribution
 }
 
+function calculateSHIF(grossSalary) {
+    return grossSalary * 0.0275;
+}
+
 function calculateAHL(grossSalary) {
     return grossSalary * 0.015; // 1.5% of salary
 }
