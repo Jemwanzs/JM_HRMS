@@ -14,7 +14,7 @@ function loadPayrollData() {
     let totalGrossSalary = 0;
     let totalPAYE = 0;
     let totalNSSF = 0;
-    let totalNHIF = 0;
+    let totalSHIF = 0;
     let totalAHL = 0;
     let totalPENSION = 0;
     let totalWHT = 0;
@@ -24,19 +24,19 @@ function loadPayrollData() {
     employees.forEach((employee, index) => {
         const paye = calculatePAYE(employee.grossSalary);
         const nssf = calculateNSSF(employee.grossSalary);
-        const nhif = calculateNHIF(employee.grossSalary);
+        const shif = calculateSHIF(employee.grossSalary);
         const ahl = calculateAHL(employee.grossSalary);
         const pension = calculatePENSION(employee.grossSalary);
         const wht = calculateWHT(employee.grossSalary);
         const otherDeductions = 0; // Initially zero, but editable
-        const totalDeductionsForRow = paye + nssf + nhif + ahl + pension + wht + otherDeductions;
+        const totalDeductionsForRow = paye + nssf + shif + ahl + pension + wht + otherDeductions;
         const netPay = employee.grossSalary - totalDeductionsForRow;
 
         // Add to totals
         totalGrossSalary += employee.grossSalary;
         totalPAYE += paye;
         totalNSSF += nssf;
-        totalNHIF += nhif;
+        totalSHIF += shif;
         totalAHL += ahl;
         totalPENSION += pension;
         totalWHT += wht;
@@ -54,7 +54,7 @@ function loadPayrollData() {
             <td>${formatWithCommas(employee.grossSalary.toFixed(2))}</td>
             <td>${formatWithCommas(paye.toFixed(2))}</td>
             <td>${formatWithCommas(nssf.toFixed(2))}</td>
-            <td>${formatWithCommas(nhif.toFixed(2))}</td>
+            <td>${formatWithCommas(shif.toFixed(2))}</td>
             <td>${formatWithCommas(ahl.toFixed(2))}</td>
             <td>${formatWithCommas(pension.toFixed(2))}</td>
             <td>${formatWithCommas(wht.toFixed(2))}</td>
@@ -73,7 +73,7 @@ function loadPayrollData() {
         <td style="font-weight:bold;">${formatWithCommas(totalGrossSalary.toFixed(2))}</td>
         <td style="font-weight:bold;">${formatWithCommas(totalPAYE.toFixed(2))}</td>
         <td style="font-weight:bold;">${formatWithCommas(totalNSSF.toFixed(2))}</td>
-        <td style="font-weight:bold;">${formatWithCommas(totalNHIF.toFixed(2))}</td>
+        <td style="font-weight:bold;">${formatWithCommas(totalSHIF.toFixed(2))}</td>
         <td style="font-weight:bold;">${formatWithCommas(totalAHL.toFixed(2))}</td>
         <td style="font-weight:bold;">${formatWithCommas(totalPENSION.toFixed(2))}</td>
         <td style="font-weight:bold;">${formatWithCommas(totalWHT.toFixed(2))}</td>
@@ -99,7 +99,8 @@ function updateTotals() {
     let totalGrossSalary = 0;
     let totalPAYE = 0;
     let totalNSSF = 0;
-    let totalNHIF = 0;
+    //let totalNHIF = 0;
+    let totalSHIF = 0;
     let totalAHL = 0;
     let totalPENSION = 0;
     let totalWHT = 0;
@@ -111,18 +112,20 @@ function updateTotals() {
     employees.forEach((employee, index) => {
         const paye = calculatePAYE(employee.grossSalary); // Updated line
         const nssf = calculateNSSF(employee.grossSalary);
-        const nhif = calculateNHIF(employee.grossSalary);
+        //const nhif = calculateNHIF(employee.grossSalary);
+        const shif = calculateSHIF(employee.grossSalary);
         const ahl = calculateAHL(employee.grossSalary);
         const pension = calculatePENSION(employee.grossSalary);
         const wht = calculateWHT(employee.grossSalary);
         const otherDeductions = parseFloat(document.getElementById(`otherDeductions-${index}`).value) || 0;
-        const totalDeductionsForRow = paye + nssf + nhif + ahl + pension + wht + otherDeductions;
+        const totalDeductionsForRow = paye + nssf + shif + ahl + pension + wht + otherDeductions;
         const netPay = employee.grossSalary - totalDeductionsForRow;
 
         totalGrossSalary += employee.grossSalary;
         totalPAYE += paye;
         totalNSSF += nssf;
-        totalNHIF += nhif;
+        //totalNHIF += nhif;
+        totalSHIF += shif;
         totalAHL += ahl;
         totalPENSION += pension;
         totalWHT += wht;
@@ -133,7 +136,7 @@ function updateTotals() {
     document.querySelector('#totalsRow .totalGrossSalary').textContent = formatWithCommas(totalGrossSalary.toFixed(2));
     document.querySelector('#totalsRow .totalPAYE').textContent = formatWithCommas(totalPAYE.toFixed(2));
     document.querySelector('#totalsRow .totalNSSF').textContent = formatWithCommas(totalNSSF.toFixed(2));
-    document.querySelector('#totalsRow .totalNHIF').textContent = formatWithCommas(totalNHIF.toFixed(2));
+    document.querySelector('#totalsRow .totalSHIF').textContent = formatWithCommas(totalSHIF.toFixed(2));
     document.querySelector('#totalsRow .totalAHL').textContent = formatWithCommas(totalAHL.toFixed(2));
     document.querySelector('#totalsRow .totalPENSION').textContent = formatWithCommas(totalPENSION.toFixed(2));
     document.querySelector('#totalsRow .totalWHT').textContent = formatWithCommas(totalWHT.toFixed(2));
@@ -154,11 +157,11 @@ function updatePayrollRow(index, otherDeductions) {
     const employee = employees[index];
     const paye = calculatePAYE(employee.grossSalary);
     const nssf = calculateNSSF(employee.grossSalary);
-    const nhif = calculateNHIF(employee.grossSalary);
+    const shif = calculateSHIF(employee.grossSalary);
     const ahl = calculateAHL(employee.grossSalary);
     const pension = calculatePENSION(employee.grossSalary);
     const wht = calculateWHT(employee.grossSalary);
-    const totalDeductions = paye + nssf + nhif + ahl + pension + wht + otherDeductions;
+    const totalDeductions = paye + nssf + shif + ahl + pension + wht + otherDeductions;
     const netPay = employee.grossSalary - totalDeductions;
 
     document.getElementById(`totalDeductions-${index}`).textContent = formatWithCommas(totalDeductions.toFixed(2));
@@ -173,7 +176,7 @@ function calculateNSSF(grossSalary) {
     return Math.min(grossSalary * 0.06, 2160);
 }
 
-function calculateNHIF(grossSalary) {
+//function calculateNHIF(grossSalary) {
     //if (grossSalary <= 5999) return 150;
     //if (grossSalary <= 7999) return 300;
     //if (grossSalary <= 11999) return 400;
@@ -191,6 +194,9 @@ function calculateNHIF(grossSalary) {
     //if (grossSalary <= 89999) return 1500;
     //if (grossSalary <= 99999) return 1600;
     //return 1700;
+//}
+
+function calculateSHIF(grossSalary) {
     return grossSalary * 0.0275;
 }
 
@@ -200,18 +206,24 @@ function calculateAHL(grossSalary) {
 
 function calculatePENSION(grossSalary) {
     return grossSalary * 0.05;
+    //Pension by employee {deduction}
 }
 
 // PAYE Calculation (Simplified example)
 function calculatePAYE(grossSalary) {
     const nssfAmount = calculateNSSF(grossSalary);
+    const shifAmount = calculateSHIF(grossSalary);
+    const ahlAmount = calculateAHL(grossSalary);
     const pensionAmount = calculatePENSION(grossSalary);
-    const totalAllowableDeduction = Math.min(nssfAmount + pensionAmount, 20000);
+    //const totalAllowableDeduction = Math.min(nssfAmount + pensionAmount, 30000); AHLF, SHIF now allowable ded from Dec 27, 2024
+    const totalAllowableDeduction = Math.min(nssfAmount + pensionAmount, 30000) + shifAmount + ahlAmount;
     const taxableIncome = grossSalary - totalAllowableDeduction;
-    const nhifAmount = calculateNHIF(grossSalary);
+    //const nhifAmount = calculateNHIF(grossSalary);
     const personalRelief = 2400;
-    const insuranceRelief = Math.min(0.15 * nhifAmount, 5000);
-    const ahlRelief = Math.min(0.15 * calculateAHL(grossSalary), 9000);
+    //const insuranceRelief = Math.min(0.15 * nhifAmount, 5000); SHIF RELIEF CEAZES TO APPLY FROM OCT 1, 2024
+    const insuranceRelief = Math.min(0 * shifAmount, 5000);
+    //const ahlRelief = Math.min(0.15 * calculateAHL(grossSalary), 9000); AHL RELIEF CEAZES TO APPLY FROM DEC 27, 2024
+    const ahlRelief = Math.min(0 * calculateAHL(grossSalary), 9000);
 
 
     if (taxableIncome <= 24000) {
@@ -261,12 +273,12 @@ async function generatePayslip(index) {
     const employee = employees[index];
     const paye = calculatePAYE(employee.grossSalary); // Updated line
     const nssf = calculateNSSF(employee.grossSalary);
-    const nhif = calculateNHIF(employee.grossSalary);
+    const shif = calculateSHIF(employee.grossSalary);
     const ahl = calculateAHL(employee.grossSalary);
     const pension = calculatePENSION(employee.grossSalary);
     const wht = calculateWHT(employee.grossSalary);
     const otherDeductions = parseFloat(document.getElementById(`otherDeductions-${index}`).value) || 0;
-    const totalDeductions = paye + nssf + nhif + ahl + pension + wht + otherDeductions;
+    const totalDeductions = paye + nssf + shif + ahl + pension + wht + otherDeductions;
     const netPay = employee.grossSalary - totalDeductions;
 
     // Retrieve company name and payroll period from inputs
@@ -355,7 +367,7 @@ async function generatePayslip(index) {
     doc.text(formatWithCommas(nssf.toFixed(2)), xOffsetAmount, 120, { align: 'right' });
 
     doc.text('SHIF:', xOffsetTitle, 130);
-    doc.text(formatWithCommas(nhif.toFixed(2)), xOffsetAmount, 130, { align: 'right' });
+    doc.text(formatWithCommas(shif.toFixed(2)), xOffsetAmount, 130, { align: 'right' });
 
     doc.text('AHL:', xOffsetTitle, 140);
     doc.text(formatWithCommas(ahl.toFixed(2)), xOffsetAmount, 140, { align: 'right' });
